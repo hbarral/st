@@ -5,17 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-// static char *font = "JetBrains Mono Medium:pixelsize=12:antialias=true:autohint=true";
-// static char *font = "Fira Mono Bold Nerd Font Complete Mono:pixelsize=12:antialias=true:autohint=true";
-static char *font = "Fira Code:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 
 /* Spare fonts */
 static char *font2[] = {
   "Symbola:pixelsize=12:antialias=true:autohint=true",
   "Fira Code:pixelsize=12:antialias=true:autohint=true",
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
 };
 
 static int borderpx = 2;
@@ -106,8 +101,8 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.0;           //< alpha value used when the window is focused.
-float alphaUnfocussed = 0.0; //< alpha value used when the focus is lost
+float alpha = 0.3;           //< alpha value used when the window is focused.
+float alphaUnfocussed = 0.1; //< alpha value used when the focus is lost
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -134,10 +129,10 @@ static const char *colorname[] = {
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#2e3440", /* background 256 */
-	"#88c0d0", /* "#d8dee9" foreground 257 */
-	"#88c0d0", /* cursor 258,  */
-  "#81a1c1"  /* reverse cursor */
+	"#2e3440", /* 256 => background */
+	"#5e81ac", /* 257 => foreground */
+	"#5e81ac", /* 258 => cursor */
+  "#4c566a"  /* 259 => reverse cursor */
 };
 
 
@@ -164,6 +159,7 @@ static unsigned int cursorshape = 2;
  */
 ResourcePref resources[] = {
 		{ "font",         STRING,  &font },
+		{ "fontalt0",     STRING,  &font2[0] },
 		{ "color0",       STRING,  &colorname[0] },
 		{ "color1",       STRING,  &colorname[1] },
 		{ "color2",       STRING,  &colorname[2] },
@@ -191,6 +187,8 @@ ResourcePref resources[] = {
 		{ "borderpx",     INTEGER, &borderpx },
 		{ "cwscale",      FLOAT,   &cwscale },
 		{ "chscale",      FLOAT,   &chscale },
+		{ "alpha",        FLOAT,   &alpha },
+		{ "alphaUnfocussed",        FLOAT,   &alphaUnfocussed },
 };
 
 /*
