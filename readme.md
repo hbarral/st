@@ -49,12 +49,15 @@ make && sudo make install && make clean
 
 
 ## Configuration
-- Xresources...
+- Some configurations that can be added to `.Xresources`
+
+```ini
 st.font: Cascadia Code-16;
 st.cursorstyle: 2
 st.alpha: 0.2
 st.alphaUnfocussed: 0.1
 st.background: black
+```
 
 
 
